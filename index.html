@@ -467,66 +467,72 @@
         </div>
 
         <!-- Coluna Direita: Card do Formulário -->
-        <div class="application-form-col">
-            <div class="form-card">
-                <h3 class="form-card-title">FAÇA SUA APLICAÇÃO</h3>
-                
-                <!-- Formulário com envio e reset independentes de scripts externos -->
-                <form action="https://formsubmit.co/aristoteles@facla.edu.br" method="POST" class="custom-form" target="vazio" id="mde-application-form">
-                    
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="Nova Aplicação - MDE Marketing Educacional">
+<div class="application-form-col">
+    <div class="form-card">
+        <h3 class="form-card-title">FAÇA SUA APLICAÇÃO</h3>
+        
+        <!-- Formulário atualizado com layout profissional para o e-mail -->
+        <form action="https://formsubmit.co/aristoteles@facla.edu.br" method="POST" class="custom-form" target="vazio" id="mde-application-form">
+            
+            <!-- CONFIGURAÇÕES DE LAYOUT DO EMAIL (NATIVAS DO FORMSUBMIT) -->
+            <input type="hidden" name="_captcha" value="false">
+            
+            <!-- 1. Deixa o e-mail limpo, em formato de tabela escaneável, sem códigos soltos -->
+            <input type="hidden" name="_template" value="table">
+            
+            <!-- 2. Cria um assunto dinâmico para você saber quem enviou antes mesmo de abrir -->
+            <input type="hidden" name="_subject" value="🚀 Nova Aplicação MDE: %[nome]%">
 
-                    <!-- Linha 1: Nome e WhatsApp -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome">SEU NOME</label>
-                            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="whatsapp">WHATSAPP</label>
-                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
-                        </div>
-                    </div>
-
-                    <!-- Linha 2: E-mail -->
-                    <div class="form-group">
-                        <label for="email">E-MAIL</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                    </div>
-
-                    <!-- Linha 3: Instagram / Site -->
-                    <div class="form-group">
-                        <label for="instagram">INSTAGRAM OU SITE DA EMPRESA</label>
-                        <input type="text" id="instagram" name="instagram" placeholder="@suaempresa ou site" required>
-                    </div>
-
-                    <!-- Linha 4: Quantidade de Matrículas -->
-                    <div class="form-group">
-                        <label for="matriculas">QUANTIDADE DE MATRÍCULAS</label>
-                        <div class="custom-select-wrapper">
-                            <select id="matriculas" name="matriculas" required>
-                                <option value="" disabled selected>Selecione a quantidade</option>
-                                <option value="ate-100">Até 100 matrículas</option>
-                                <option value="101-300">De 101 a 300 matrículas</option>
-                                <option value="301-500">De 301 a 500 matrículas</option>
-                                <option value="mais-500">Mais de 500 matrículas</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Botão com gatilho forçado nativo para evitar travas do script.js -->
-                    <button type="submit" class="form-submit-btn" onclick="setTimeout(() => { document.getElementById('mde-application-form').reset(); alert('Sua aplicação foi enviada com sucesso!'); }, 200);">
-                        QUERO MAIS MATRÍCULAS
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    </button>
-
-                </form>
-
-                <!-- Iframe para reter o redirecionamento -->
-                <iframe name="vazio" id="vazio" style="display:none;"></iframe>
+            <!-- Linha 1: Nome e WhatsApp -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nome">SEU NOME</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WHATSAPP</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+                </div>
             </div>
-        </div>
+
+            <!-- Linha 2: E-mail -->
+            <div class="form-group">
+                <label for="email">E-MAIL</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            </div>
+
+            <!-- Linha 3: Instagram / Site -->
+            <div class="form-group">
+                <label for="instagram">INSTAGRAM OU SITE DA EMPRESA</label>
+                <input type="text" id="instagram" name="instagram" placeholder="@suaempresa ou site" required>
+            </div>
+
+            <!-- Linha 4: Quantidade de Matrículas -->
+            <div class="form-group">
+                <label for="matriculas">QUANTIDADE DE MATRÍCULAS</label>
+                <div class="custom-select-wrapper">
+                    <select id="matriculas" name="matriculas" required>
+                        <option value="" disabled selected>Selecione a quantidade</option>
+                        <option value="Até 100 matrículas">Até 100 matrículas</option>
+                        <option value="De 101 a 300 matrículas">De 101 a 300 matrículas</option>
+                        <option value="De 301 a 500 matrículas">De 301 a 500 matrículas</option>
+                        <option value="Mais de 500 matrículas">Mais de 500 matrículas</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botão com gatilho forçado nativo -->
+            <button type="submit" class="form-submit-btn" onclick="setTimeout(() => { document.getElementById('mde-application-form').reset(); alert('Sua aplicação foi enviada com sucesso!'); }, 200);">
+                QUERO MAIS MATRÍCULAS
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+
+        </form>
+
+        <!-- Iframe para reter o redirecionamento -->
+        <iframe name="vazio" id="vazio" style="display:none;"></iframe>
+    </div>
+</div>
 
     </div>
 </section> <!-- FECHAMENTO CORRETO DA SEÇÃO DE APLICAÇÃO -->
