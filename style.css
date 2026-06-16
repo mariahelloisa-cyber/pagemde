@@ -1,0 +1,1592 @@
+/* ==========================================================================
+   1. RESET GERAL E VARIÁVEIS DE CORES
+   ========================================================================== */
+:root {
+    --roxo-escuro: #3e316f;      /* Textos principais da dobra clara */
+    --roxo-vibrante: #5a4fcf;    /* Cor principal de destaque */
+    --roxo-medio: #6553bf;       /* Usado para efeitos e degradês */
+    --branco: #ffffff;           /* Fundo do site e textos da seção escura */
+    --texto-sub: #4f467a;        /* Tom de roxo acinzentado para leitura suave */
+    --verde-wpp: #4ade80;         /* Verde exato do botão do WhatsApp */
+    --vermelho-badge: #ef4444;    /* Vermelho da etiqueta Prioridade */
+    --ouro-premium: #fcd34d;      /* Borda dourada do card destaque */
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--branco);
+    color: var(--roxo-escuro);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container padrão de alinhamento */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. HERO SECTION (DOBRA SUPERIOR)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    padding: 80px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--branco);
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Deixamos o filtro branco em 0.1 para não escurecer a foto original */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('assets/herophoto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* MODIFIQUE AQUI: Mude para 0.3 ou 0.2 para deixar a foto bem transparente */
+    opacity: 0.10; 
+    
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-wrapper {
+    margin-bottom: 35px;
+}
+
+.main-logo {
+    max-width: 135px;
+    height: auto;
+    display: block;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    color: var(--roxo-escuro);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.purple-gradient-text {
+    background: linear-gradient(90deg, var(--roxo-vibrante), var(--roxo-medio));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--texto-sub);
+    max-width: 780px;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 40px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(62, 49, 111, 0.14);
+    background-color: #000000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-gradient-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 45px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--branco);
+    text-decoration: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #352961 0%, #6e59db 100%);
+    box-shadow: 0 10px 25px rgba(53, 41, 97, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-gradient-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(110, 89, 219, 0.35);
+    background: linear-gradient(135deg, #43337a 0%, #7e69f0 100%);
+}
+
+.btn-gradient-cta .arrow {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-gradient-cta:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* ==========================================================================
+   SEÇÃO DE DEPOIMENTOS (CORRIGIDA: FUNDO BRANCO, TEXTOS E FONTES PADRÃO)
+   ========================================================================== */
+.testimonials-video-section {
+    background-color: #ffffff;
+    /* Suavizamos a margem negativa de -50px para apenas -15px */
+    margin-top: -15px; 
+    /* Adicionamos 40px de espaçamento interno no topo para criar o respiro branco */
+    padding: 40px 0 80px 0; 
+    font-family: var(--font-main);
+    position: relative;
+    z-index: 10;
+}
+
+/* Cabeçalho */
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.testimonials-top-tag {
+    color:var(--color-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+}
+
+.testimonials-main-title {
+    color: #0f172a;
+    font-size: 2.1rem;
+    font-weight: 800;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.25;
+    font-family: var(--font-main);
+}
+
+/* Grid de Distribuição */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* O Card com borda sutil para destacar sobre o fundo branco */
+.testimonial-video-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid #f1f5f9; /* Adicionado contorno leve para contraste */
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04); /* Sombra elegante */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estrelas e Aspas */
+.card-top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stars-purple {
+    color: #a855f7;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.quote-mark {
+    color: #f1f5f9;
+    font-size: 2.5rem;
+    font-family: Georgia, serif;
+    line-height: 0;
+    margin-top: 15px;
+}
+
+/* Ajuste do Vídeo */
+.testimonial-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilização do Texto do Depoimento */
+.testimonial-text {
+    font-size: 0.92rem;
+    color: #334155; /* Tom cinza escuro de leitura confortável */
+    line-height: 1.6;
+    font-style: normal;
+    text-align: left;
+    margin: 0 0 20px 0;
+    flex-grow: 1; /* Faz com que todos os cards fiquem alinhados na base */
+    font-family: var(--font-main);
+}
+
+/* Separador do Card */
+.card-separator {
+    border: none;
+    border-top: 1px solid #f1f5f9;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Metadados do Usuário */
+.card-user-info {
+    text-align: left;
+}
+
+.user-name {
+    color: #0f172a;
+    font-size: 0.98rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+    font-family: var(--font-main);
+}
+
+.user-meta {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: var(--font-main);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .testimonials-main-title {
+        font-size: 1.65rem;
+    }
+}
+/* ==========================================================================
+   3. SEÇÃO DE AUTORIDADE (MUNDO ROXO)
+   ========================================================================== */
+/* 3. SEÇÃO DE AUTORIDADE (MUNDO ROXO - AGORA ANIMADO)
+   ========================================================================== */
+.authority-section {
+    position: relative;
+    padding: 50px 0;
+    
+    /* Adicionamos mais variações de tons roxos para o efeito de transição ficar fluido */
+    background: linear-gradient(-45deg, #5a4fcf, #3e316f, #2b2152, #493cb0);
+    
+    /* Força o fundo a expandir para dar espaço ao movimento */
+    background-size: 400% 400%;
+    
+    /* Dispara a animação: 12 segundos, movimento suave e infinito */
+    animation: moverFundoRoxo 8s ease infinite;
+    
+    color: var(--branco);
+    text-align: center;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.auth-logo-img {
+    height: 95px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-separator {
+    width: 1px;
+    height: 55px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.auth-main-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    margin-bottom: 45px;
+}
+
+.auth-card {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 45px 50px;
+    max-width: 850px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.auth-quote {
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--branco);
+    margin-bottom: 30px;
+}
+
+/* SOLUÇÃO DEFINITIVA CONTRA ÍCONES GIGANTES (Impedirá qualquer quebra no mobile) */
+.auth-features-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px 40px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 30px;
+    margin-top: 10px;
+}
+
+.auth-feature-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* Força o tamanho pequeno do ícone independente da tag usada (img, svg ou i) */
+.auth-feature-item img,
+.auth-feature-item svg,
+.auth-feature-item i,
+.auth-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    flex-shrink: 0 !important;
+    object-fit: contain !important;
+}
+
+.auth-feature-item span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--branco);
+}
+
+/* ==========================================================================
+   4. SEÇÃO DE SERVIÇOS (ABAIXO DA AUTORIDADE) - NOVO!
+   ========================================================================== */
+.services-section {
+    padding: 100px 0;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.services-header {
+    margin-bottom: 60px;
+}
+
+.services-header .main-logo {
+    margin: 0 auto 30px auto;
+}
+
+.services-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--roxo-escuro);
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    line-height: 1.3;
+}
+
+.services-subtitle {
+    font-size: 1.15rem;
+    color: var(--texto-sub);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid com 3 colunas padrão */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Cartão Padrão */
+.service-card {
+    background-color: var(--branco);
+    border: 1px solid #f0edf8;
+    border-radius: 16px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(62, 49, 111, 0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(62, 49, 111, 0.07);
+}
+
+/* Ícone centralizado do serviço */
+.service-icon-wrapper {
+    margin-bottom: 25px;
+    color: var(--roxo-vibrante);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon-wrapper img,
+.service-icon-wrapper svg,
+.service-icon-wrapper i {
+    width: 42px !important;
+    height: 42px !important;
+}
+
+.service-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--roxo-escuro);
+    margin-bottom: 15px;
+}
+
+.service-card-desc {
+    font-size: 0.98rem;
+    color: var(--texto-sub);
+    line-height: 1.6;
+}
+
+/* Configurações do Card de Destaque (Tráfego Pago) */
+.service-card.card-premium {
+    border: 2px solid var(--ouro-premium);
+}
+
+/* Tag Vermelha de Prioridade */
+.badge-priority {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--vermelho-badge);
+    color: var(--branco);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   5. MEDIA QUERIES (DESIGN RESPONSIVO PARA MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+    .authority-section {
+        padding: 60px 0;
+    }
+    .auth-logos {
+        gap: 20px;
+    }
+    .auth-logo-img {
+        height: 60px;
+    }
+    .logo-separator {
+        height: 35px;
+    }
+    .auth-main-title {
+        font-size: 1.8rem;
+    }
+    .auth-card {
+        padding: 30px 20px;
+    }
+    .auth-quote {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    .auth-features-grid {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+    
+   /* Ajustes Mobile da Nova Seção de Serviços */
+    .services-section {
+        padding: 60px 0;
+    }
+    .services-title {
+        font-size: 1.8rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .service-card {
+        padding: 35px 20px;
+    }
+} /* CHAVE CORRETA: Fecha aqui as configurações de celular dos serviços */
+
+
+/* ==========================================================================
+   6. SEÇÃO: POR QUE ESCOLHER A MDE? (PROPORÇÕES DA SEGUNDA IMAGEM)
+   ========================================================================== */
+.features-section {
+    position: relative;
+    padding: 60px 0;
+    background-image: url('assets/mesamde.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.features-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(121, 111, 230, 0.55) 0%, rgba(85, 71, 140, 0.62) 100%);
+    z-index: 1;
+}
+
+.relative-content {
+    position: relative;
+    z-index: 2;
+}
+
+.features-header {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.features-main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.features-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+}
+
+.features-box-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.feature-box-item {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 22px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.feature-box-item:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.18);
+}
+    
+.feature-box-icon {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    margin-bottom: 12px;
+}
+
+.feature-box-icon svg {
+    width: 15px !important;
+    height: 15px !important;
+    max-width: 15px !important;
+    max-height: 15px !important;
+    display: block !important;
+}
+
+.feature-box-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--branco);
+    margin-bottom: 6px;
+}
+
+.feature-box-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+    max-width: 360px;
+}
+
+/* Ajustes mobile específicos da Seção 6 */
+@media (max-width: 768px) {
+    .features-section {
+        padding: 50px 0;
+    }
+    .features-main-title {
+        font-size: 1.9rem;
+    }
+    .features-box-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .feature-box-item {
+        padding: 20px 15px;
+    }
+}
+
+
+/* ==========================================================================
+   7. SEÇÃO: CTA / CONSULTORIA GRATUITA (ESTILO BASEADO NA IMAGE_9E43E7.PNG)
+   ========================================================================== */
+.cta-consultoria-section {
+    padding: 90px 0;
+    background-color: #fbfbfd;
+    text-align: center;
+}
+
+.cta-consultoria-header {
+    margin-bottom: 45px;
+}
+
+.cta-consultoria-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--roxo-escuro);
+    max-width: 850px;
+    margin: 0 auto 20px auto;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.cta-consultoria-subtitle {
+    font-size: 1.15rem;
+    color: var(--texto-sub);
+    max-width: 820px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.cta-offer-box {
+    background-color: var(--branco);
+    border: 2.5px solid #fcd34d;
+    border-radius: 16px;
+    padding: 50px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(62, 49, 111, 0.04);
+    background-image: 
+        radial-gradient(circle at top left, rgba(252, 211, 77, 0.2) 0%, transparent 40px),
+        radial-gradient(circle at bottom right, rgba(74, 222, 128, 0.2) 0%, transparent 40px);
+}
+
+.badge-limitado {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--vermelho-badge);
+    color: var(--branco);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+.offer-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--roxo-escuro);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.offer-title .rocket-icon {
+    font-size: 1.9rem;
+}
+
+.offer-subtitle {
+    font-size: 1.1rem;
+    color: #555175;
+    max-width: 680px;
+    margin: 0 auto 35px auto;
+    line-height: 1.5;
+}
+
+.highlight-blue {
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.offer-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.offer-feature-card {
+    background-color: #f8f7fd;
+    border-radius: 10px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.offer-feature-icon {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--branco);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.offer-feature-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--roxo-escuro);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.offer-feature-card p {
+    font-size: 0.85rem;
+    color: var(--texto-sub);
+    line-height: 1.4;
+}
+
+.offer-action-wrapper {
+    margin-top: 20px;
+}
+
+.btn-offer-gradient {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--branco);
+    text-decoration: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #3f3676 0%, #7c67f1 100%);
+    box-shadow: 0 8px 25px rgba(124, 103, 241, 0.3);
+    transition: all 0.3s ease;
+    max-width: 100%;
+}
+
+.btn-offer-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(124, 103, 241, 0.45);
+    background: linear-gradient(90deg, #493e88 0%, #8975f7 100%);
+}
+
+.btn-offer-gradient .btn-arrow {
+    transition: transform 0.2s ease;
+}
+
+.btn-offer-gradient:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Ajustes mobile específicos da Seção 7 */
+@media (max-width: 768px) {
+    .cta-consultoria-section {
+        padding: 60px 0;
+    }
+    .cta-consultoria-title {
+        font-size: 1.85rem;
+    }
+    .offer-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .cta-offer-box {
+        padding: 40px 20px;
+    }
+    .offer-features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .btn-offer-gradient {
+        font-size: 0.95rem;
+        padding: 18px 20px;
+        line-height: 1.4;
+    }
+} /* <-- CHAVE QUE FALTAVA PARA FECHAR A SECÇÃO 7 NO MOBILE */
+
+
+/* ==========================================================================
+   8. SEÇÃO: PERGUNTAS FREQUENTES (FAQ - EXATAMENTE IGUAL À IMAGEM)
+   ========================================================================== */
+.faq-section {
+    padding: 90px 0;
+    background-color: var(--branco); /* Fundo branco e limpo */
+    text-align: center;
+}
+
+.faq-header {
+    margin-bottom: 50px;
+}
+
+.faq-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--roxo-escuro);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.faq-subtitle {
+    font-size: 1.15rem;
+    color: var(--texto-sub);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Lista centralizada e com tamanho idêntico à referência */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Divisores horizontais finos de cada bloco */
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Botão da Pergunta */
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 24px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-main);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--roxo-escuro);
+    transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+    color: var(--roxo-vibrante);
+}
+
+/* Estilo da Seta lateral */
+.faq-arrow {
+    font-size: 0.75rem;
+    color: #a3a1bc;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: 20px;
+}
+
+/* Container escondido da resposta com animação suave de abertura */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+    padding: 0 10px;
+}
+
+.faq-answer p {
+    font-size: 1rem;
+    color: var(--texto-sub);
+    line-height: 1.6;
+    padding-bottom: 24px;
+}
+
+/* CLASSE DE ATIVAÇÃO (Injetada via JS ao clicar) */
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+    color: var(--roxo-vibrante);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Expande suavemente revelando o conteúdo */
+    transition: max-height 0.3s cubic-bezier(1, 0, 1, 0), padding 0.3s ease;
+}
+
+/* Ajustes Responsivos da Secção 8 */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 60px 0;
+    }
+    .faq-title {
+        font-size: 1.9rem;
+    }
+    .faq-question {
+        font-size: 1rem;
+        padding: 20px 5px;
+    }
+    .faq-answer p {
+        font-size: 0.92rem;
+    }
+} /* <-- ESTA CHAVE FECHA CORRETAMENTE O MOBILE DO FAQ */
+
+
+/* ==========================================================================
+   9. RODAPÉ (FONTES REDUZIDAS E ÍCONES FIÉIS - IMAGE_92D71F.PNG)
+   ========================================================================== */
+.footer-final {
+    background-color: #2b224d; /* Tom de roxo mais claro solicitado */
+    padding: 35px 0 20px 0; /* Ainda mais fino e achatado */
+    text-align: center;
+    font-family: var(--font-main);
+}
+
+.footer-final-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Grupo do Título Principal */
+.footer-brand-group {
+    margin-bottom: 20px;
+}
+
+.footer-brand-title {
+    font-size: 1.15rem; /* Fonte menor e proporcional */
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 2px;
+    letter-spacing: -0.2px;
+}
+
+.footer-brand-subtitle {
+    font-size: 0.8rem; /* Fonte menor */
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+}
+
+/* Linha com os links e selos institucionais */
+.footer-legal-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Reduzido o espaço para ficar compacto */
+    margin-bottom: 20px;
+}
+
+.legal-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 0.8rem; /* Fonte reduzida para o tamanho exato da imagem */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+    color: var(--branco);
+}
+
+.legal-item {
+    font-size: 0.8rem; /* Fonte menor acompanhando os links */
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Estilização cirúrgica dos ícones SVG verdes */
+.icon-green {
+    width: 13px !important;
+    height: 13px !important;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/* Linha divisória roxa bem fina e discreta */
+.footer-divider {
+    width: 100%;
+    max-width: 800px;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+}
+
+/* Texto de Copyright inferior */
+.footer-copy-text {
+    font-size: 0.75rem; /* Fonte bem menor na assinatura */
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+}
+
+/* Ajuste Responsivo Mobile */
+@media (max-width: 768px) {
+    .footer-final {
+        padding: 30px 15px 15px 15px;
+    }
+    .footer-legal-row {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+}
+    /* ==========================================================================
+   SEÇÃO EXPERIÊNCIA (FUNDO BRANCO, DUAS FOTOS E CORES DO PROJETO)
+   ========================================================================== */
+.experience-section {
+    background-color: var(--branco);
+    padding: 80px 0;
+    font-family: var(--font-main);
+}
+
+.experience-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr; /* Separação perfeita em duas colunas */
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Container que organiza a assimetria das fotos */
+.experience-images-grid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 480px; 
+}
+
+.exp-img-wrapper {
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #f1f5f9; /* Cor cinza neutra provisória enquanto as fotos não entram */
+    box-shadow: 0 15px 35px rgba(62, 49, 111, 0.06);
+}
+
+/* Foto de cima menor */
+.img-small {
+    width: 65%;
+    height: 200px;
+    align-self: flex-start;
+}
+
+/* Foto de baixo maior, subindo de leve sob a outra */
+.img-large {
+    width: 80%;
+    height: 280px;
+    align-self: flex-end;
+    margin-top: -50px; /* Efeito elegante de sobreposição */
+}
+
+.exp-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.exp-img-wrapper:hover .exp-photo {
+    transform: scale(1.03); /* Efeito suave de zoom ao passar o mouse */
+}
+
+/* Textos da Coluna Direita */
+.experience-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.experience-tag {
+    color: var(--roxo-vibrante);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.experience-title {
+    color: var(--roxo-escuro);
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.experience-desc {
+    color: var(--texto-sub);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+/* Lista de Benefícios */
+.experience-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.experience-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--roxo-escuro);
+    font-weight: 500;
+}
+
+/* Círculo do Ícone Check adaptado para a paleta de roxo */
+.feature-check {
+    width: 26px;
+    height: 26px;
+    background-color: rgba(90, 79, 207, 0.1); /* Fundo lilás suave */
+    color: var(--roxo-vibrante); /* Ícone com o roxo da marca */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Responsividade Completa para Celulares e Tablets */
+@media (max-width: 992px) {
+    .experience-container {
+        grid-template-columns: 1fr; /* Agrupa em uma única coluna */
+        gap: 40px;
+    }
+    
+    .experience-images-grid {
+        height: auto;
+        flex-direction: row; /* Posiciona lado a lado em telas médias */
+    }
+
+    .img-small, .img-large {
+        width: 50%;
+        height: 220px;
+        margin-top: 0;
+    }
+    
+    .experience-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .experience-images-grid {
+        flex-direction: column; /* Volta a empilhar em celulares pequenos */
+    }
+    .img-small, .img-large {
+        width: 100%;
+        height: 200px;
+    }
+    
+}
+/* Comandará o deslocamento suave do degradê de um lado para o outro */
+@keyframes moverFundoRoxo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* ==========================================================================
+   5. SEÇÃO DE FORMULÁRIO DE APLICAÇÃO (BASEADO NA IMAGE_FB833D.JPG)
+   ========================================================================== */
+.application-section {
+    background-color: var(--branco, #ffffff);
+    padding: 100px 0;
+    font-family: var(--font-main, sans-serif);
+}
+
+.application-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Coluna da Esquerda (Textos) --- */
+/* --- Coluna da Esquerda (Textos Alinhados à Esquerda) --- */
+.application-text-col {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Alinha o bloco inteiro à esquerda */
+}
+
+.application-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--roxo-escuro, #3e316f); /* 1ª COR: Roxo Escuro */
+    line-height: 1.2;
+    margin-bottom: 25px;
+    text-align: left; /* Garante o alinhamento do título */
+}
+
+/* 2ª COR: Aplica o Roxo Vibrante na segunda parte do texto */
+.application-title .highlight-text {
+    color: var(--roxo-vibrante, #5a4fcf); 
+}
+
+.application-desc {
+    font-size: 1.1rem;
+    color: var(--texto-sub, #666666);
+    line-height: 1.7;
+    text-align: left; /* Garante o alinhamento do parágrafo */
+}
+
+/* --- Coluna da Direita (Card Formulário) --- */
+.form-card {
+    /* Fundo roxo escuro profundo para destacar o card */
+    background-color: #5a4fcf; 
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 25px 50px rgba(250, 247, 247, 0.15);
+}
+
+.form-card-title {
+    color: #ffffff; /* Cor dourada clara para destaque, combinando com o roxo */
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+}
+
+/* --- Estilos do Formulário Interno --- */
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    background-color: #ffffff; /* Fundo dos inputs ainda mais escuro */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px 18px;
+    color: #000000;
+    font-size: 0.95rem;
+    font-family: var(--font-main, sans-serif);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 254, 254, 0.4);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--roxo-vibrante, #7e75df);
+    background-color: #ffffff;
+}
+
+/* Reset visual básico do Select nativo */
+.custom-select-wrapper select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+.custom-select-wrapper select option {
+    background-color: #1a162e;
+    color: #ffffff;
+}
+/* --- Botão Principal --- */
+.form-submit-btn {
+    background: linear-gradient(135deg, #f7f7f7 0%, #ffffff 100%); /* Degradê dourado elegante */
+    color: #1a162e; /* Texto escuro para contraste */
+    border: none;
+    border-radius: 8px;
+    padding: 18px 20px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-top: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(241, 239, 239, 0.4);
+}
+
+/* --- Responsividade (Celulares e Tablets) --- */
+@media (max-width: 992px) {
+    .application-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .application-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-row {
+        grid-template-columns: 1fr; /* Coloca Nome e WhatsApp um embaixo do outro no celular */
+        gap: 20px;
+    }
+    
+    .form-card {
+        padding: 35px 25px;
+    }
+}
+/* RESOLUÇÃO DEFINITIVA: Letras escuras dentro dos inputs brancos */
+.form-group input {
+    color: #000000 !important; /* Cor da letra quando o usuário digita */
+}
+
+.form-group input::placeholder {
+    color: #666666 !important; /* Cor do texto de exemplo (placeholder) para aparecer no branco */
+    opacity: 1 !important;     /* Garante que a cor fique firme em todos os navegadores */
+}
+/* ALINHAMENTO DO FORMULÁRIO (CORREÇÃO DA IMAGE_FAAD66.PNG) */
+.application-container {
+    /* Faz as duas colunas começarem exatamente juntas pelo topo */
+    align-items: flex-start !important; 
+}
+
+.application-text-col {
+    /* Empurra o texto para baixo na medida exata do título do formulário */
+    margin-top: 50px !important; 
+}
+/* ==========================================================================
+   CARD DE IMPACTO HORIZONTAL (ESTILO IMAGE_FAA58C.PNG)
+   ========================================================================== */
+.info-badge-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #7e75df; /* Fundo roxo escuro idêntico ao do formulário */
+    padding: 12px 20px;
+    border-radius: 8px; /* Cantos suavemente arredondados */
+    margin-top: 30px; /* Espaçamento ideal abaixo da descrição */
+    width: fit-content; /* Faz o card se ajustar ao tamanho do texto */
+    box-shadow: 0 8px 20px rgba(26, 22, 46, 0.15);
+}
+
+/* Quadrado dourado do ícone à esquerda */
+.badge-icon-box {
+    background: linear-gradient(135deg, #e5b47a 0%, #c4945b 100%); /* Degradê dourado */
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7e75df; /* Cor do ícone escura para dar contraste */
+    flex-shrink: 0; /* Impede o ícone de amassar em telas menores */
+}
+
+/* Texto interno do card */
+.badge-text {
+    color: #ffffff !important;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0 !important; /* Remove margens padrões que possam desalinhá-lo */
+    text-align: left;
+}
+
+/* Ajuste rápido para telas mobile */
+@media (max-width: 576px) {
+    .info-badge-card {
+        width: 100%; /* Ocupa a largura total no celular */
+        padding: 14px 16px;
+    }
+    .badge-text {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+}
+/* AJUSTE EXCLUSIVO DE ESPAÇAMENTO (CORES MANTIDAS COMO ESTÃO) */
+.info-badge-card {
+    margin-top: 75px !important; /* Empurra o card mais para baixo, distanciando do texto */
+}
