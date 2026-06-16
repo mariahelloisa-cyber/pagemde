@@ -442,10 +442,10 @@
 <section class="faq-section">
     <div class="container">
 
-        <!-- ==========================================================================
+  <!-- ==========================================================================
    5ª SEÇÃO: FORMULÁRIO DE APLICAÇÃO (CAPTAÇÃO DE ALUNOS)
    ========================================================================== -->
-<section class="application-section">
+<section class="application-section" id="contato">
     <div class="container application-container">
         
        <!-- Coluna Esquerda: Textos de Venda -->
@@ -457,10 +457,9 @@
                 Nossa equipe irá analisar o posicionamento digital da sua instituição e apresentar oportunidades para aumentar sua visibilidade, gerar mais leads qualificados e converter mais matrículas.
             </p>
 
-            <!-- NOVO: Card de Destaque Estilo image_faa58c.png -->
+            <!-- Card de Destaque -->
             <div class="info-badge-card">
                 <div class="badge-icon-box">
-                    <!-- Ícone de Gráfico/Crescimento em SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                 </div>
                 <p class="badge-text">MAIS MATRÍCULAS. MAIS VISIBILIDADE. MAIS RESULTADOS</p>
@@ -468,69 +467,73 @@
         </div>
 
         <!-- Coluna Direita: Card do Formulário -->
-<div class="application-form-col">
-    <div class="form-card">
-        <h3 class="form-card-title">FAÇA SUA APLICAÇÃO</h3>
-        
-        <!-- O FORMULÁRIO COMEÇA AQUI -->
-        <!-- onsubmit executa o reset dos campos e o alerta 150 milissegundos após o disparo dos dados -->
-        <form action="https://formsubmit.co/aristoteles@facla.edu.br" method="POST" class="custom-form" target="vazio" onsubmit="setTimeout(() => { this.reset(); alert('Sua aplicação foi enviada com sucesso!'); }, 150);">
-            
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Nova Aplicação - MDE Marketing Educacional">
+        <div class="application-form-col">
+            <div class="form-card">
+                <h3 class="form-card-title">FAÇA SUA APLICAÇÃO</h3>
+                
+                <!-- Formulário com envio e reset independentes de scripts externos -->
+                <form action="https://formsubmit.co/aristoteles@facla.edu.br" method="POST" class="custom-form" target="vazio" id="mde-application-form">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Nova Aplicação - MDE Marketing Educacional">
 
-            <!-- Linha 1: Nome e WhatsApp (Lado a Lado) -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="nome">SEU NOME</label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
-                </div>
-                <div class="form-group">
-                    <label for="whatsapp">WHATSAPP</label>
-                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
-                </div>
+                    <!-- Linha 1: Nome e WhatsApp -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">SEU NOME</label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp">WHATSAPP</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <!-- Linha 2: E-mail -->
+                    <div class="form-group">
+                        <label for="email">E-MAIL</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <!-- Linha 3: Instagram / Site -->
+                    <div class="form-group">
+                        <label for="instagram">INSTAGRAM OU SITE DA EMPRESA</label>
+                        <input type="text" id="instagram" name="instagram" placeholder="@suaempresa ou site" required>
+                    </div>
+
+                    <!-- Linha 4: Quantidade de Matrículas -->
+                    <div class="form-group">
+                        <label for="matriculas">QUANTIDADE DE MATRÍCULAS</label>
+                        <div class="custom-select-wrapper">
+                            <select id="matriculas" name="matriculas" required>
+                                <option value="" disabled selected>Selecione a quantidade</option>
+                                <option value="ate-100">Até 100 matrículas</option>
+                                <option value="101-300">De 101 a 300 matrículas</option>
+                                <option value="301-500">De 301 a 500 matrículas</option>
+                                <option value="mais-500">Mais de 500 matrículas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Botão com gatilho forçado nativo para evitar travas do script.js -->
+                    <button type="submit" class="form-submit-btn" onclick="setTimeout(() => { document.getElementById('mde-application-form').reset(); alert('Sua aplicação foi enviada com sucesso!'); }, 200);">
+                        QUERO MAIS MATRÍCULAS
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+
+                </form>
+
+                <!-- Iframe para reter o redirecionamento -->
+                <iframe name="vazio" id="vazio" style="display:none;"></iframe>
             </div>
-
-            <!-- Linha 2: E-mail -->
-            <div class="form-group">
-                <label for="email">E-MAIL</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-            </div>
-
-            <!-- Linha 3: Instagram / Site -->
-            <div class="form-group">
-                <label for="instagram">INSTAGRAM OU SITE DA EMPRESA</label>
-                <input type="text" id="instagram" name="instagram" placeholder="@suaempresa ou site" required>
-            </div>
-
-            <!-- Linha 4: Quantidade de Matrículas (Select) -->
-            <div class="form-group">
-                <label for="matriculas">QUANTIDADE DE MATRÍCULAS</label>
-                <div class="custom-select-wrapper">
-                    <select id="matriculas" name="matriculas" required>
-                        <option value="" disabled selected>Selecione a quantidade</option>
-                        <option value="ate-100">Até 100 matrículas</option>
-                        <option value="101-300">De 101 a 300 matrículas</option>
-                        <option value="301-500">De 301 a 500 matrículas</option>
-                        <option value="mais-500">Mais de 500 matrículas</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Botão de Envio (Agora dentro do formulário correto) -->
-            <button type="submit" class="form-submit-btn">
-                QUERO MAIS MATRÍCULAS
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-
-        </form>
-        <!-- O FORMULÁRIO TERMINA AQUI -->
-
-        <!-- O iframe invisível que impede a página de atualizar/redirecionar -->
-        <iframe name="vazio" id="vazio" style="display:none;"></iframe>
+        </div>
 
     </div>
-</div>
+</section> <!-- FECHAMENTO CORRETO DA SEÇÃO DE APLICAÇÃO -->
+
+<!-- SEÇÃO DO FAQ (TOTALMENTE ISOLADA) -->
+<section class="faq-section">
+    <div class="container">
         
         <div class="faq-header">
             <h2 class="faq-title">Perguntas Frequentes</h2>
@@ -538,7 +541,6 @@
         </div>
 
         <div class="faq-list">
-            
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Como funciona o processo de consultoria?</span>
@@ -588,7 +590,6 @@
                     <p>Sim! Oferecemos acompanhamento contínuo, relatórios mensais e ajustes estratégicos para garantir o melhor desempenho das campanhas.</p>
                 </div>
             </div>
-
         </div>
 
     </div>
